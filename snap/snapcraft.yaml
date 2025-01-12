@@ -25,6 +25,7 @@ apps:
     after: 
       - conan
       - sdl2
+      - sdl2-image
     plugs:
       - home
       - network
@@ -52,17 +53,6 @@ parts:
     override-pull: |
       craftctl default
       craftctl set version="$(git describe --tags | sed 's/^v//' | cut -d "-" -f1)"    
-    
-    stage-packages:
-      - libsdl2-ttf-2.0-0
-      - libsdl2-image-2.0-0
-      - libopenal1
-      - zlib1g
-      - libnoise0
-      - libvorbis0a
-      - libpng16-16t64
-      - libimgui-dev
-      - python3
       
   conan:
     plugin: dump
@@ -72,4 +62,9 @@ parts:
   sdl2:
     plugin: cmake
     source: https://github.com/libsdl-org/SDL
-    source-type: git      
+    source-type: git  
+    
+  sdl2-image:
+    plugin: cmake
+    source: https://github.com/libsdl-org/SDL_image
+    source-type: git    
