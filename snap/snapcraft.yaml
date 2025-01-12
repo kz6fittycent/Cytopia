@@ -1,0 +1,70 @@
+name: cytopia
+summary: Cytopia is a free, open source retro pixel-art city building game
+description: |
+  Cytopia is a free, open source retro pixel-art city building game with a big 
+  focus on mods. It utilizes a custom isometric rendering engine based on SDL2.
+adopt-info: cytopia
+base: core24
+license: GPL-3.0
+confinement: strict
+compression: lzo
+source-code: https://github.com/CytopiaTeam/Cytopia
+issues: https://github.com/kz6fittycent/Cytopia/issues
+contact: https://github.com/kz6fittycent/Cytopia
+icon: snap/local/cytopia.png
+
+platforms:
+  amd64:
+    build-on: [amd64]
+    build-for: [amd64]
+    
+apps:
+  cytopia:
+    command: bin/cytopia
+    extensions: [gnome]
+    after: 
+      - conan
+    plugs:
+      - home
+      - network
+      - joystick
+      - opengl
+      - audio-playback     
+
+parts:
+  cytopia:
+    source: https://github.com/CytopiaTeam/Cytopia
+    source-type: git
+    plugin: cmake
+    build-packages:
+      - libsdl2-2.0-0
+      - libsdl2-ttf-2.0-0
+      - libsdl2-image-2.0-0
+      - libopenal1
+      - zlib1g
+      - libnoise0
+      - libvorbis0a
+      - libpng16-16t64
+      - libimgui-dev
+      - python3
+    
+    override-pull: |
+      craftctl default
+      craftctl set version="$(git describe --tags | sed 's/^v//' | cut -d "-" -f1)"    
+    
+    stage-packages:
+      - libsdl2-2.0-0
+      - libsdl2-ttf-2.0-0
+      - libsdl2-image-2.0-0
+      - libopenal1
+      - zlib1g
+      - libnoise0
+      - libvorbis0a
+      - libpng16-16t64
+      - libimgui-dev
+      - python3
+      
+  conan:
+    plugin: dump
+    source: https://github.com/conan-io/conan/releases/download/2.10.1/conan-2.10.1-amd64.deb
+    source-type: deb    
