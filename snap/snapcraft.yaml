@@ -69,9 +69,6 @@ parts:
     
   sdl2-image:
     plugin: cmake
-    cmake-parameters:
-      - -SDLIMAGE_INSTALL=off
-      
     source: https://github.com/libsdl-org/SDL_image
     source-type: git   
     
