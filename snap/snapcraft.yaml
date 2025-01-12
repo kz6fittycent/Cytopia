@@ -26,6 +26,7 @@ apps:
       - conan
       - sdl2
       - sdl2-image
+      - sdl2-ttf
     plugs:
       - home
       - network
@@ -39,9 +40,6 @@ parts:
     source-type: git
     plugin: cmake
     build-packages:
-      - libsdl2-dev
-      - libsdl2-ttf-2.0-0
-      - libsdl2-image-2.0-0
       - libopenal1
       - zlib1g
       - libnoise0
@@ -67,4 +65,9 @@ parts:
   sdl2-image:
     plugin: cmake
     source: https://github.com/libsdl-org/SDL_image
-    source-type: git    
+    source-type: git   
+    
+  sdl2-ttf:
+    plugin: cmake
+    source: https://github.com/libsdl-org/SDL_ttf
+    source-type: git 
