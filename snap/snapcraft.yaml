@@ -24,6 +24,7 @@ apps:
     extensions: [gnome]
     after: 
       - conan
+      - sdl2
     plugs:
       - home
       - network
@@ -53,7 +54,6 @@ parts:
       craftctl set version="$(git describe --tags | sed 's/^v//' | cut -d "-" -f1)"    
     
     stage-packages:
-      - libsdl2-2.0-0
       - libsdl2-ttf-2.0-0
       - libsdl2-image-2.0-0
       - libopenal1
@@ -67,4 +67,9 @@ parts:
   conan:
     plugin: dump
     source: https://github.com/conan-io/conan/releases/download/2.10.1/conan-2.10.1-amd64.deb
-    source-type: deb    
+    source-type: deb  
+    
+  sdl2:
+    plugin: cmake
+    source: https://github.com/libsdl-org/SDL
+    source-type: git      
