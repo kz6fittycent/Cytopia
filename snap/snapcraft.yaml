@@ -47,8 +47,9 @@ parts:
       - libpng16-16t64
       - libimgui-dev
       - python3
+    after:
       - sdl2
-      - sdl2-images
+      - sdl2-image
       - sdl2-ttf
       - conan
     
