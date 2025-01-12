@@ -47,6 +47,10 @@ parts:
       - libpng16-16t64
       - libimgui-dev
       - python3
+      - sdl2
+      - sdl2-images
+      - sdl2-ttf
+      - conan
     
     override-pull: |
       craftctl default
