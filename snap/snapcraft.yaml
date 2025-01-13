@@ -81,7 +81,8 @@ parts:
     source-type: git   
     after:
       - sdl2
-      - freetype
+    build-packages:
+      - libfreetype-dev
       
   sdl2-ttf:
     plugin: cmake
@@ -92,11 +93,6 @@ parts:
     source-type: git 
     after:
       - sdl2  
-      - freetype
-      
-  freetype:
-    plugin: cmake
-    cmake-parameters:
-      - -DCMAKE_INSTALL_PREFIX=/usr/local    
-    source: https://github.com/freetype/freetype
-    source-type: git 
+    build-packages:
+      - libfreetype-dev
+
