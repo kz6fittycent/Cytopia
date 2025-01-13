@@ -76,20 +76,29 @@ parts:
     plugin: cmake
     cmake-parameters:
       - -DCMAKE_INSTALL_PREFIX=/usr 
+      - FREETYPE_LIBRARY=/usr
     source: https://github.com/libsdl-org/SDL_image
     source-branch: SDL2
     source-type: git   
     after:
       - sdl2
+      - freetype
       
   sdl2-ttf:
     plugin: cmake
     cmake-parameters:
       - -DCMAKE_INSTALL_PREFIX=/usr
+      - FREETYPE_LIBRARY=/usr
     source: https://github.com/libsdl-org/SDL_ttf
     source-branch: SDL2    
     source-type: git 
     after:
       - sdl2  
-    build-packages:
-      - libfreetype6  
+      - freetype
+      
+  freetype:
+    plugin: cmake
+    cmake-parameters:
+      - -DCMAKE_INSTALL_PREFIX=/usr    
+    source: https://github.com/freetype/freetype
+    source-type: git 
