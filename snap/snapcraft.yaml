@@ -37,11 +37,13 @@ parts:
     source-type: git
     plugin: cmake
     cmake-parameters:
-      - -DCMAKE_INSTALL_PREFIX=/usr    
+      - -DCMAKE_INSTALL_PREFIX=/usr 
+      - -DNOISE_INCLUDE_DIR=/usr/include/noise
     build-packages:
       - libopenal-dev
       - zlib1g-dev
       - libnoise-dev
+      - libnoise0
       - libvorbis-dev
       - libpng-dev
       - libimgui-dev
@@ -50,13 +52,17 @@ parts:
       - libsdl2-image-dev
       - libsdl2-dev
       - libsdl2-ttf-dev
+      - angelscript-dev
+      - libmicroprofile-dev
+      - libmicroprofile4
+      - doxygen
     after:
       - conan
     
     override-pull: |
       craftctl default
       craftctl set version="$(git describe --tags | sed 's/^v//' | cut -d "-" -f1)"    
-      
+
   conan:
     plugin: dump
     source: https://github.com/conan-io/conan/releases/download/2.10.1/conan-2.10.1-amd64.deb
