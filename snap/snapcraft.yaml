@@ -39,11 +39,11 @@ parts:
     cmake-parameters:
       - -DCMAKE_INSTALL_PREFIX=/usr    
     build-packages:
-      - libopenal1
-      - zlib1g
+      - libopenal-dev
+      - zlib1g-dev
       - libnoise-dev
-      - libvorbis0a
-      - libpng16-16t64
+      - libvorbis-dev
+      - libpng-dev
       - libimgui-dev
       - python3
       - libfreetype-dev
