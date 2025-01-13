@@ -67,13 +67,15 @@ parts:
     cmake-parameters:
       - -DCMAKE_INSTALL_PREFIX=/usr
     source: https://github.com/libsdl-org/SDL
+    source-branch: SDL2
     source-type: git  
     
   sdl2-image:
     plugin: cmake
     cmake-parameters:
-      - -DCMAKE_INSTALL_PREFIX=/usr    
+      - -DCMAKE_INSTALL_PREFIX=/usr 
     source: https://github.com/libsdl-org/SDL_image
+    source-branch: SDL2
     source-type: git   
     after:
       - sdl2
@@ -83,6 +85,7 @@ parts:
     cmake-parameters:
       - -DCMAKE_INSTALL_PREFIX=/usr
     source: https://github.com/libsdl-org/SDL_ttf
+    source-branch: SDL2    
     source-type: git 
     after:
       - sdl2    
