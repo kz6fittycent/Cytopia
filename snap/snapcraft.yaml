@@ -20,7 +20,7 @@ platforms:
     
 apps:
   cytopia:
-    command: bin/cytopia
+    command: usr/bin/cytopia
     extensions: [gnome]
     after: 
       - conan
@@ -39,6 +39,8 @@ parts:
     source: https://github.com/CytopiaTeam/Cytopia
     source-type: git
     plugin: cmake
+    cmake-parameters:
+      - -DCMAKE_INSTALL_PREFIX=/usr    
     build-packages:
       - libopenal1
       - zlib1g
@@ -88,4 +90,6 @@ parts:
     source-branch: SDL2    
     source-type: git 
     after:
-      - sdl2    
+      - sdl2  
+    build-packages:
+      - libfreetype6  
