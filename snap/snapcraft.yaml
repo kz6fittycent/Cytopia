@@ -71,8 +71,11 @@ parts:
     plugin: cmake
     source: https://github.com/libsdl-org/SDL_image
     source-type: git   
-    
+    after:
+      - sdl2
   sdl2-ttf:
     plugin: cmake
     source: https://github.com/libsdl-org/SDL_ttf
     source-type: git 
+    after:
+      - sdl2    
