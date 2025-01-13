@@ -68,13 +68,14 @@ parts:
     source-type: git  
     
   sdl2-image:
-    plugin: cmake
+    plugin: make
     source: https://github.com/libsdl-org/SDL_image
     source-type: git   
     after:
       - sdl2
+      
   sdl2-ttf:
-    plugin: cmake
+    plugin: make
     source: https://github.com/libsdl-org/SDL_ttf
     source-type: git 
     after:
