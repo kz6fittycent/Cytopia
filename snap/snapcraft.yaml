@@ -39,10 +39,10 @@ parts:
     cmake-parameters:
       - -DCMAKE_INSTALL_PREFIX=/usr 
       - -DCMAKE_CXX_FLAGS=-I/usr/include/noise
+      - -DCMAKE_CXX_FLAGS=-I/usr/include/microprofile.h
     build-packages:
       - libopenal-dev
       - zlib1g-dev
-      - libnoise-dev
       - libnoise0
       - libvorbis-dev
       - libpng-dev
