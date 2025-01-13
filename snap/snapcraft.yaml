@@ -64,18 +64,24 @@ parts:
     
   sdl2:
     plugin: cmake
+    cmake-parameters:
+      - -DCMAKE_INSTALL_PREFIX=/usr
     source: https://github.com/libsdl-org/SDL
     source-type: git  
     
   sdl2-image:
-    plugin: make
+    plugin: cmake
+    cmake-parameters:
+      - -DCMAKE_INSTALL_PREFIX=/usr    
     source: https://github.com/libsdl-org/SDL_image
     source-type: git   
     after:
       - sdl2
       
   sdl2-ttf:
-    plugin: make
+    plugin: cmake
+    cmake-parameters:
+      - -DCMAKE_INSTALL_PREFIX=/usr
     source: https://github.com/libsdl-org/SDL_ttf
     source-type: git 
     after:
