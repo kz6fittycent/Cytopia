@@ -24,9 +24,6 @@ apps:
     extensions: [gnome]
     after: 
       - conan
-      - sdl2
-      - sdl2-image
-      - sdl2-ttf
     plugs:
       - home
       - network
@@ -44,15 +41,16 @@ parts:
     build-packages:
       - libopenal1
       - zlib1g
-      - libnoise0
+      - libnoise-dev
       - libvorbis0a
       - libpng16-16t64
       - libimgui-dev
       - python3
+      - libfreetype-dev
+      - libsdl2-image-dev
+      - libsdl2-dev
+      - libsdl2-ttf-dev
     after:
-      - sdl2
-      - sdl2-image
-      - sdl2-ttf
       - conan
     
     override-pull: |
@@ -62,37 +60,4 @@ parts:
   conan:
     plugin: dump
     source: https://github.com/conan-io/conan/releases/download/2.10.1/conan-2.10.1-amd64.deb
-    source-type: deb  
-    
-  sdl2:
-    plugin: cmake
-    cmake-parameters:
-      - -DCMAKE_INSTALL_PREFIX=/usr
-    source: https://github.com/libsdl-org/SDL
-    source-branch: SDL2
-    source-type: git  
-    
-  sdl2-image:
-    plugin: cmake
-    cmake-parameters:
-      - -DCMAKE_INSTALL_PREFIX=/usr 
-    source: https://github.com/libsdl-org/SDL_image
-    source-branch: SDL2
-    source-type: git   
-    after:
-      - sdl2
-    build-packages:
-      - libfreetype-dev
-      
-  sdl2-ttf:
-    plugin: cmake
-    cmake-parameters:
-      - -DCMAKE_INSTALL_PREFIX=/usr
-    source: https://github.com/libsdl-org/SDL_ttf
-    source-branch: SDL2    
-    source-type: git 
-    after:
-      - sdl2  
-    build-packages:
-      - libfreetype-dev
-
+    source-type: deb
