@@ -39,9 +39,9 @@ parts:
     cmake-parameters:
       - -DCMAKE_INSTALL_PREFIX=/usr
       - -DCMAKE_PREFIX_PATH=$CRAFT_STAGE/usr
+      - -DLIBNOISE_INCLUDE_DIR=$CRAFT_STAGE/usr/include/libnoise/noise
     build-environment:
-      - LD_LIBRARY_PATH: $CRAFT_STAGE/usr/lib/$CRAFT_ARCH_TRIPLET_BUILD_FOR${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}
-      - LDFLAGS: ${LDFLAGS:+$LDFLAGS} -s      
+      - LD_LIBRARY_PATH: $CRAFT_STAGE/usr/include/libnoise/noise
     build-packages:
       - libopenal-dev
       - zlib1g-dev
