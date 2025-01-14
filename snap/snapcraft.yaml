@@ -24,6 +24,7 @@ apps:
     extensions: [gnome]
     after: 
       - conan
+      - libnoise
     plugs:
       - home
       - network
@@ -44,7 +45,7 @@ parts:
     build-packages:
       - libopenal-dev
       - zlib1g-dev
-      - libnoise0
+#      - libnoise0
       - libvorbis-dev
       - libpng-dev
       - libimgui-dev
@@ -60,9 +61,7 @@ parts:
       - pkg-config
     after:
       - conan
-    
-    stage-packages:
-      - libnoise0
+      - libnoise
       
     override-pull: |
       craftctl default
@@ -72,3 +71,8 @@ parts:
     plugin: dump
     source: https://github.com/conan-io/conan/releases/download/2.10.1/conan-2.10.1-amd64.deb
     source-type: deb
+    
+  libnoise:
+    plugin: cmake
+    source: https://github.com/eXpl0it3r/libnoise
+    source-type: git
