@@ -24,7 +24,6 @@ apps:
     extensions: [gnome]
     after: 
       - conan
-      - libnoise
     plugs:
       - home
       - network
@@ -40,10 +39,13 @@ parts:
     cmake-parameters:
       - -DCMAKE_INSTALL_PREFIX=/usr
       - -DCMAKE_PREFIX_PATH=$CRAFT_STAGE/usr
+    build-environment:
+      - LD_LIBRARY_PATH: $CRAFT_STAGE/usr/lib/$CRAFT_ARCH_TRIPLET_BUILD_FOR${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}
+      - LDFLAGS: ${LDFLAGS:+$LDFLAGS} -s      
     build-packages:
       - libopenal-dev
       - zlib1g-dev
-#      - libnoise0
+      - libnoise0
       - libvorbis-dev
       - libpng-dev
       - libimgui-dev
@@ -59,7 +61,6 @@ parts:
       - pkg-config
     after:
       - conan
-      - libnoise
       
     override-pull: |
       craftctl default
@@ -69,8 +70,3 @@ parts:
     plugin: dump
     source: https://github.com/conan-io/conan/releases/download/2.10.1/conan-2.10.1-amd64.deb
     source-type: deb
-    
-  libnoise:
-    plugin: cmake
-    source: https://github.com/eXpl0it3r/libnoise
-    source-type: git
