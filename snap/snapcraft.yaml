@@ -61,6 +61,9 @@ parts:
     after:
       - conan
     
+    stage-packages:
+      - libnoise0
+      
     override-pull: |
       craftctl default
       craftctl set version="$(git describe --tags | sed 's/^v//' | cut -d "-" -f1)"  
