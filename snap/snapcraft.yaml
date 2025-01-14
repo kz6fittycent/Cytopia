@@ -39,6 +39,7 @@ parts:
     cmake-parameters:
       - -DCMAKE_INSTALL_PREFIX=/usr
       - -DCMAKE_PREFIX_PATH=$CRAFT_STAGE/usr
+      - -DLIBRARY_OUTPUT_PATH=$CRAFT_STAGE/usr/include/libnoise
     build-packages:
       - libopenal-dev
       - zlib1g-dev
@@ -58,24 +59,12 @@ parts:
       - pkg-config
     after:
       - conan
-      - libnoise
       
     override-pull: |
       craftctl default
-      craftctl set version="$(git describe --tags | sed 's/^v//' | cut -d "-" -f1)"  
-        
+      craftctl set version="$(git describe --tags | sed 's/^v//' | cut -d "-" -f1)" 
+              
   conan:
     plugin: dump
     source: https://github.com/conan-io/conan/releases/download/2.10.1/conan-2.10.1-amd64.deb
-    source-type: deb
-    
-  libnoise:
-    plugin: cmake
-    source: https://github.com/eXpl0it3r/libnoise
-    source-type: git
-    build-packages:
-      - cmake
-      - make
-    override-build: |
-      cp -r include/noise $CRAFT_PART_INSTALL/include/noise
-      cp libnoise.* $CRAFT_PART_INSTALL/inlude/     
+    source-type: deb  
