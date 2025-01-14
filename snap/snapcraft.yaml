@@ -56,6 +56,7 @@ parts:
       - libmicroprofile-dev
       - libmicroprofile4
       - doxygen
+      - pkg-config
     after:
       - conan
     
