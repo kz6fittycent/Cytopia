@@ -40,6 +40,7 @@ parts:
       - -DCMAKE_INSTALL_PREFIX=/usr 
       - -DLIBNOISE_INCLUDE_DIR=$SNAP/include/libnoise/noise
       - -DCMAKE_CXX_FLAGS=-I/usr/include/microprofile.h
+    snap-build-args: --cmake-args -DCMAKE_PREFIX_PATH=/usr/include/libnoise/noise
     build-packages:
       - libopenal-dev
       - zlib1g-dev
