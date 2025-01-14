@@ -38,7 +38,8 @@ parts:
     source-type: git
     plugin: cmake
     cmake-parameters:
-      - -DCMAKE_INSTALL_PREFIX=/usr 
+      - -DCMAKE_INSTALL_PREFIX=/usr
+      - -DCMAKE_PREFIX_PATH=$CRAFT_STAGE/usr
     build-packages:
       - libopenal-dev
       - zlib1g-dev
