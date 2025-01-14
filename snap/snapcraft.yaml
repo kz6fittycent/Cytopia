@@ -38,7 +38,7 @@ parts:
     plugin: cmake
     cmake-parameters:
       - -DCMAKE_INSTALL_PREFIX=/usr 
-      - -DCMAKE_CXX_FLAGS=-I/usr/include/noise.h
+      - -DCMAKE_CXX_FLAGS=-I/usr/include/libnoise/noise.h
       - -DCMAKE_CXX_FLAGS=-I/usr/include/microprofile.h
     build-packages:
       - libopenal-dev
