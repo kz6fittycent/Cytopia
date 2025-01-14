@@ -38,6 +38,7 @@ parts:
     plugin: cmake
     cmake-parameters:
       - -DCMAKE_INSTALL_PREFIX=/usr 
+      - -DCMAKE_VERBOSE_MAKEFILE=ON
       - -DLIBNOISE_INCLUDE_DIR=/usr/include/libnoise/noise
       - -DCMAKE_CXX_FLAGS=-I/usr/include/microprofile.h
     build-packages:
