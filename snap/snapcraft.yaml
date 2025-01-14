@@ -39,6 +39,7 @@ parts:
     cmake-parameters:
       - -DCMAKE_INSTALL_PREFIX=/usr 
       - -DLIBNOISE_INCLUDE_DIR=$SNAP/include/libnoise/noise
+      - -DCMAKE_PREFIX_PATH=/usr/include/libnoise/noise
       - -DCMAKE_CXX_FLAGS=-I/usr/include/microprofile.h
     build-packages:
       - libopenal-dev
@@ -63,11 +64,7 @@ parts:
     override-pull: |
       craftctl default
       craftctl set version="$(git describe --tags | sed 's/^v//' | cut -d "-" -f1)"  
-    
-    override-build: |
-        cmake -DCMAKE_PREFIX_PATH=/usr/include/libnoise/noise
-        make 
-
+        
   conan:
     plugin: dump
     source: https://github.com/conan-io/conan/releases/download/2.10.1/conan-2.10.1-amd64.deb
