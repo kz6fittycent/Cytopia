@@ -73,6 +73,10 @@ Mac
 
 See: <https://github.com/CytopiaTeam/Cytopia/wiki/Build-instructions>
 
+#### Install the snap
+
+`sudo snap install cytopia`
+
 #### Coding guidelines
 
 See: <https://github.com/CytopiaTeam/Cytopia/wiki/Coding-guidelines>
