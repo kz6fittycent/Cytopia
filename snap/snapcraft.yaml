@@ -22,8 +22,6 @@ apps:
   cytopia:
     command: usr/bin/cytopia
     extensions: [gnome]
-    after: 
-      - conan
     plugs:
       - home
       - network
