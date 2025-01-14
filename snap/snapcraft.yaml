@@ -40,7 +40,6 @@ parts:
       - -DCMAKE_INSTALL_PREFIX=/usr 
       - -DLIBNOISE_INCLUDE_DIR=$SNAP/include/libnoise/noise
       - -DCMAKE_CXX_FLAGS=-I/usr/include/microprofile.h
-    snap-build-args: --cmake-args -DCMAKE_PREFIX_PATH=/usr/include/libnoise/noise
     build-packages:
       - libopenal-dev
       - zlib1g-dev
@@ -63,7 +62,11 @@ parts:
     
     override-pull: |
       craftctl default
-      craftctl set version="$(git describe --tags | sed 's/^v//' | cut -d "-" -f1)"    
+      craftctl set version="$(git describe --tags | sed 's/^v//' | cut -d "-" -f1)"  
+    
+    override-build: |
+        cmake -DCMAKE_PREFIX_PATH=/usr/include/libnoise/noise
+        make 
 
   conan:
     plugin: dump
