@@ -39,9 +39,6 @@ parts:
     plugin: cmake
     cmake-parameters:
       - -DCMAKE_INSTALL_PREFIX=/usr 
-      - -DLIBNOISE_INCLUDE_DIR=$SNAP/include/libnoise/noise
-      - -DCMAKE_PREFIX_PATH=/usr/include/libnoise/noise
-      - -DCMAKE_CXX_FLAGS=-I/usr/include/microprofile.h
     build-packages:
       - libopenal-dev
       - zlib1g-dev
