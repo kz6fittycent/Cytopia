@@ -81,3 +81,6 @@ parts:
       - -DCMAKE_INSTALL_PREFIX=/usr    
     source: https://github.com/eXpl0it3r/libnoise
     source-type: git
+  
+  hooks:
+    - post-build.sh
