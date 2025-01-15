@@ -21,7 +21,7 @@ platforms:
     
 apps:
   cytopia:
-    command: usr/bin/cytopia
+    command: $SNAP/usr/bin/cytopia
     extensions: [gnome]
     plugs:
       - home
@@ -36,8 +36,8 @@ parts:
     source-type: git
     plugin: cmake
     cmake-parameters:
-      - -DCMAKE_INSTALL_PREFIX=/usr
-      - -DCMAKE_PREFIX_PATH=$CRAFT_STAGE/usr
+      - -DCMAKE_INSTALL_PREFIX=${CRAFT_STAGE}/usr
+      - -DCMAKE_PREFIX_PATH=${CRAFT_STAGE}/usr
     build-packages:
       - libopenal-dev
       - zlib1g-dev
